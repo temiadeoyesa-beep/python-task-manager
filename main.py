@@ -1,4 +1,5 @@
 import json # Module to handle data saving/loading
+import random # 1. Import the random module
 
 # Function to load existing tasks from a file
 def load_tasks(filename="tasks.json"):
@@ -17,9 +18,21 @@ def save_tasks(tasks, filename="tasks.json"):
         json.dump(tasks, file, indent=4)
     print("Tasks saved successfully!")
 
+# Function to show a random tip
+def show_random_tip():
+    """Displays a random productivity tip to the user."""
+    tips = [
+        "Focus on one task at a time!",
+        "Take a short break every 25 minutes.",
+        "Clear your workspace to clear your mind.",
+        "The best way to start is to just write the first line!"
+    ]
+    print(f"\n[Tip of the day]: {random.choice(tips)}")
+
 # 3. Main program loop
 def main():
     tasks = load_tasks() # Initialize list by loading from file
+    show_random_tip() # 2. Call the tip function when the program starts
     
     while True:
         print("\n--- TASK MANAGER ---")
